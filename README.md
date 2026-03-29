@@ -2,6 +2,9 @@
 
 ## Live Deployment
 
+
+> **Note:** The website is deployed on Render. Spawning the service for the first time or after inactivity can take 3-5 minutes.
+
 Deployment Link: `https://stocksense-ai-2aho.onrender.com`
 
 ## Project Overview
