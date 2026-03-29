@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: stock-data-intelligence-dashboard
+    runtime: python
+    pythonVersion: 3.13.5
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: APP_ENV
+        value: production

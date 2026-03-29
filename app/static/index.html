@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Data Intelligence Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div id="global-loader" class="global-loader hidden" aria-live="polite">
+      <div class="spinner"></div>
+      <p>Loading market insights...</p>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Internship Assignment</p>
+          <h1>Stock Intelligence Dashboard</h1>
+          <p class="sidebar-copy">
+            Real stock ingestion, engineered features, and a compact visual layer powered by FastAPI.
+          </p>
+        </div>
+
+        <section class="panel">
+          <h2>Companies</h2>
+          <div id="company-list" class="symbol-list" aria-live="polite"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Date Filter</h2>
+          <div class="filter-group">
+            <button class="filter-button active" data-days="7">7 Days</button>
+            <button class="filter-button" data-days="30">30 Days</button>
+            <button class="filter-button" data-days="90">90 Days</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Top Movers</h2>
+            <p class="panel-meta">Latest daily return snapshot</p>
+          </div>
+          <div id="top-movers-error" class="inline-error hidden"></div>
+          <div class="movers-grid">
+            <div>
+              <p class="movers-label gain">Top Gainers</p>
+              <div id="top-gainers" class="mover-list"></div>
+            </div>
+            <div>
+              <p class="movers-label loss">Top Losers</p>
+              <div id="top-losers" class="mover-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Why Volatility?</h2>
+          <p class="sidebar-copy small">
+            Volatility is the chosen custom metric because it highlights short-term risk and makes simple price
+            charts more analytical without introducing opaque forecasting logic.
+          </p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <div id="dashboard-error" class="banner-error hidden"></div>
+
+        <header class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Overview</p>
+            <h2 id="selected-symbol">Loading...</h2>
+          </div>
+          <div class="summary-grid" id="summary-grid">
+            <article class="summary-tile">
+              <p>Loading</p>
+              <h4>Please wait</h4>
+            </article>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="section-header">
+            <div class="section-copy">
+              <p class="eyebrow">Price Trend</p>
+              <h3>Closing Price vs 7-Day Moving Average</h3>
+            </div>
+          </div>
+          <div id="price-chart-error" class="inline-error hidden"></div>
+          <div class="chart-frame">
+            <canvas id="price-chart"></canvas>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-header">
+            <div class="section-copy">
+              <p class="eyebrow">Comparison</p>
+              <h3>Normalized Price Comparison</h3>
+            </div>
+            <div class="comparison-controls">
+              <select id="compare-symbol"></select>
+            </div>
+          </div>
+          <div id="comparison-chart-error" class="inline-error hidden"></div>
+          <div class="chart-frame">
+            <canvas id="comparison-chart"></canvas>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
