@@ -2,7 +2,7 @@
 
 ## Live Deployment
 
-Deployment Link: `INSERT_DEPLOYMENT_LINK_HERE`
+Deployment Link: `https://stocksense-ai-2aho.onrender.com`
 
 ## Project Overview
 
